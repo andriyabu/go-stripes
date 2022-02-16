@@ -1,5 +1,10 @@
 package main
 
+import (
+	"log"
+	"text/template"
+)
+
 const version = "1.0.0"
 const cssVersion = "1"
 
@@ -15,4 +20,13 @@ type config struct {
 		secret string
 		key    string
 	}
+}
+
+//receiver for a various application
+type application struct {
+	config        config
+	infoLog       *log.Logger
+	errorLog      *log.Logger
+	templateCache map[string]*template.Template
+	version       string
 }
